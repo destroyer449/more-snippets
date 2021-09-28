@@ -16,21 +16,26 @@
 ;;
 ;;; Code:
 
-(defvar doom-snippets-dir
+(eval-when-compile
+  (require 'cl-lib))
+(eval-and-compile
+  (require 'yasnippet))
+
+(defvar more-snippets-dir
   (file-name-directory
    (cond (load-in-progress load-file-name)
          ((bound-and-true-p byte-compile-current-file)
           byte-compile-current-file)
          (buffer-file-name)))
-  "The base directory of the doom-snippets library.")
+  "The base directory of the more-snippets library.")
 
 ;;;###autoload
 (defun more-snippets-initialize ()
-"Add `more-snippets-dir' to `yas-snippet-dirs', replacing the default
+  "Add `more-snippets-dir' to `yas-snippet-dirs', replacing the default
 yasnippet directory."
-(setq yas-wrap-around-region nil)
-(add-to-list 'yas-snippet-dirs 'doom-snippets-dir)
-(yas-load-directory doom-snippets-dir t))
+  (setq yas-wrap-around-region nil)
+  (add-to-list 'yas-snippet-dirs 'more-snippets-dir)
+  (yas-load-directory more-snippets-dir t))
 
 (provide 'more-snippets)
 ;;; more-snippets.el ends here
