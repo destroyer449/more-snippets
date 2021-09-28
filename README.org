@@ -1,0 +1,2 @@
+#+title: My local library of snippets
+This repository contains all of the snippets I use that doom emacs doesn't have built in, either because they have too much custom functionality, or because they are just unconventional.
